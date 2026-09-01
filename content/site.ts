@@ -14,8 +14,8 @@ export const site = {
   tagline: "Notes on artificial intelligence inside transactional practice",
   updated: "Updated August 2026",
   nav: [
-    { label: "Writing", href: "/#writing" },
-    { label: "Practice notes", href: "/#notes" },
+    { label: "Writing", href: "/writing" },
+    { label: "Practice notes", href: "/notes" },
     { label: "About", href: "/#about" },
     { label: "Subscribe", href: "/#subscribe", accent: true },
   ],
@@ -92,7 +92,7 @@ export const footer = {
     { label: "Email", href: "" },
     { label: "LinkedIn", href: "" },
     { label: "RSS", href: "/feed.xml" },
-    { label: "Archive", href: "/archive" },
+    { label: "Archive", href: "/writing" },
   ],
   disclaimer:
     "Written by Josh Benzadon in a personal capacity. Nothing here is legal advice.",

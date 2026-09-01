@@ -17,8 +17,8 @@ export function RecentWriting({
       <div className="writing__head">
         <h2 className="eyebrow">Recent writing</h2>
         {totalPublished > 0 && (
-          <Link href="/archive" className="writing__archive">
-            Browse the archive
+          <Link href="/writing" className="writing__archive">
+            All writing
           </Link>
         )}
       </div>

@@ -1235,3 +1235,129 @@ a:hover {
     margin-top: 10px;
   }
 }
+
+/* --- writing index and practice notes page -------------------- */
+
+.listing {
+  padding: 56px var(--gutter) 64px;
+}
+
+.listing__head {
+  padding-bottom: 28px;
+  border-bottom: 3px double var(--ink);
+}
+
+.listing__title {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.listing__dek {
+  margin: 14px 0 0;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.listing__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listing__item {
+  padding: 34px 0;
+  border-bottom: 1px solid var(--rule);
+  max-width: 78ch;
+}
+
+.listing__meta {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.listing__post-title {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.22;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.listing__excerpt {
+  margin: 14px 0 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.listing__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.listing__tags {
+  color: var(--faint);
+}
+
+.listing__tags a {
+  color: var(--faint);
+  border-bottom: 1px solid var(--rule);
+}
+
+.listing__tags a:hover,
+.listing__continue {
+  color: var(--accent);
+}
+
+.notes__full .notes__row:first-child {
+  border-top: 0;
+}
+
+.notes__more {
+  margin: 28px 0 0;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.notes__more a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+@media (max-width: 700px) {
+  .listing {
+    padding: 40px var(--gutter) 48px;
+  }
+
+  .listing__title {
+    font-size: 30px;
+  }
+
+  .listing__post-title {
+    font-size: 25px;
+  }
+
+  .listing__excerpt {
+    font-size: 17px;
+  }
+}

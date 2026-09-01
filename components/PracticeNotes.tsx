@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { practiceNotes } from "@/content/site";
 
 export function PracticeNotes() {
@@ -13,6 +14,9 @@ export function PracticeNotes() {
           </div>
         ))}
       </div>
+      <p className="notes__more">
+        <Link href="/notes">The practice notes in full</Link>
+      </p>
     </section>
   );
 }
