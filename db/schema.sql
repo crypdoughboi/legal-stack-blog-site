@@ -1,7 +1,7 @@
 -- The Legal Stack — schema.
 -- Run once in the Supabase SQL editor (Database → SQL Editor → New query).
 
-create extension if not exists "pgcrypto";
+-- gen_random_uuid() is built into Postgres 13+, so no extension is needed.
 
 create table if not exists posts (
   id               uuid primary key default gen_random_uuid(),
