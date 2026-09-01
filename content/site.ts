@@ -5,6 +5,8 @@
  */
 
 export const site = {
+  /** Absolute origin, used for the RSS feed's links. */
+  url: "https://legal-stack-blog-site.vercel.app",
   author: "Josh Benzadon",
   title: "The Legal Stack",
   tagline: "Notes on artificial intelligence inside transactional practice",
@@ -40,6 +42,7 @@ export const leadEssay = {
     "What has worked better for me: find the one step in the process a partner is already annoyed about, and never ask anyone to change two things at once.",
   ],
   date: "Aug 24",
+  published: "2026-08-24",
   readingTime: "9 min",
 };
 
@@ -50,6 +53,7 @@ export const recentPosts = [
     href: "#",
     dek: "One real data room, the number it came to, and the hours it didn't remove.",
     date: "Aug 12",
+    published: "2026-08-12",
   },
   {
     numeral: "II.",
@@ -57,6 +61,7 @@ export const recentPosts = [
     href: "#",
     dek: "A gap between procurement and practice that I keep running into.",
     date: "Jul 30",
+    published: "2026-07-30",
   },
   {
     numeral: "III.",
@@ -64,6 +69,7 @@ export const recentPosts = [
     href: "#",
     dek: "Where I think the leverage moved, and what that does to the associate year.",
     date: "Jul 18",
+    published: "2026-07-18",
   },
   {
     numeral: "IV.",
@@ -71,6 +77,7 @@ export const recentPosts = [
     href: "#",
     dek: "Precedent was rarely my bottleneck. Judgment about deviation usually was.",
     date: "Jun 29",
+    published: "2026-06-29",
   },
 ];
 
@@ -121,6 +128,11 @@ export const newsletter = {
   eyebrow: "Subscribe",
   heading: "One memo a month. No vendor roundups.",
   dek: "What changed in legal AI, what I think it means for transactional practice, and whether it survived contact with a live deal.",
+  /**
+   * Buttondown account the form posts to. Empty string keeps the form inert,
+   * exactly as the prototype had it.
+   */
+  buttondownUsername: "",
   placeholder: "you@firm.com",
   cta: "Subscribe",
   footnote: "Unsubscribe anytime.",
@@ -130,7 +142,7 @@ export const footer = {
   links: [
     { label: "Email", href: "#" },
     { label: "LinkedIn", href: "#" },
-    { label: "RSS", href: "#" },
+    { label: "RSS", href: "/feed.xml" },
     { label: "Archive", href: "#" },
   ],
   disclaimer:

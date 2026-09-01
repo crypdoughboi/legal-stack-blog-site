@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Newsreader } from "next/font/google";
+import { site } from "@/content/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -19,9 +20,15 @@ const baskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: "The Legal Stack — Josh Benzadon",
   description:
     "Notes on artificial intelligence inside transactional practice, by Josh Benzadon, innovation attorney.",
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: site.title }],
+    },
+  },
 };
 
 export default function RootLayout({

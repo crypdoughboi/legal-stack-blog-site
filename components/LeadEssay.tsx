@@ -1,5 +1,5 @@
 import { leadEssay } from "@/content/site";
-import { PlaceholderPlate } from "./PlaceholderPlate";
+import { LeadIllustration } from "./LeadIllustration";
 
 export function LeadEssay() {
   return (
@@ -22,13 +22,7 @@ export function LeadEssay() {
           <a href={leadEssay.href}>Continue reading</a>
         </div>
       </div>
-      <PlaceholderPlate
-        id="illustration"
-        width={520}
-        height={640}
-        labelY={325}
-        label="illustration — 13:16"
-      />
+      <LeadIllustration />
     </section>
   );
 }
