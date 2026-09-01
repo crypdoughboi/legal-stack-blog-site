@@ -14,10 +14,10 @@ export const site = {
   tagline: "Notes on artificial intelligence inside transactional practice",
   updated: "Updated August 2026",
   nav: [
-    { label: "Writing", href: "#writing" },
-    { label: "Practice notes", href: "#notes" },
-    { label: "About", href: "#about" },
-    { label: "Subscribe", href: "#subscribe", accent: true },
+    { label: "Writing", href: "/#writing" },
+    { label: "Practice notes", href: "/#notes" },
+    { label: "About", href: "/#about" },
+    { label: "Subscribe", href: "/#subscribe", accent: true },
   ],
 } as const;
 
@@ -83,11 +83,16 @@ export const newsletter = {
 };
 
 export const footer = {
+  /**
+   * Links with an empty href are left out of the footer rather than shipped
+   * as dead ones. Fill in the email and LinkedIn destinations and they
+   * reappear on their own.
+   */
   links: [
-    { label: "Email", href: "#" },
-    { label: "LinkedIn", href: "#" },
+    { label: "Email", href: "" },
+    { label: "LinkedIn", href: "" },
     { label: "RSS", href: "/feed.xml" },
-    { label: "Archive", href: "#" },
+    { label: "Archive", href: "/archive" },
   ],
   disclaimer:
     "Written by Josh Benzadon in a personal capacity. Nothing here is legal advice.",
