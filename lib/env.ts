@@ -11,7 +11,12 @@ export const env = {
   githubClientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
   authorGithubLogin: (process.env.AUTHOR_GITHUB_LOGIN ?? "").toLowerCase(),
   supabaseUrl: process.env.SUPABASE_URL ?? "",
-  supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY ?? "",
+  // Supabase renamed these: newer projects issue a secret key (sb_secret_…)
+  // where older ones had a service_role JWT. Either works here.
+  supabaseServiceKey:
+    process.env.SUPABASE_SECRET_KEY ??
+    process.env.SUPABASE_SERVICE_ROLE_KEY ??
+    "",
   supabaseBucket: process.env.SUPABASE_BUCKET ?? "post-images",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "",
 };

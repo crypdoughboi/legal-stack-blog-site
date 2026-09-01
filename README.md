@@ -28,7 +28,10 @@ npm run build
    `GITHUB_CLIENT_SECRET`, `AUTHOR_GITHUB_LOGIN` (the only account allowed
    in), and `AUTH_SECRET` (`openssl rand -hex 32`).
 3. **Images.** Create a **public** Supabase storage bucket named
-   `post-images`, then set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
+   `post-images`, then set `SUPABASE_URL` plus a server key from Project
+   Settings → API Keys: either a new secret key (`sb_secret_…`) as
+   `SUPABASE_SECRET_KEY`, or the legacy `service_role` JWT as
+   `SUPABASE_SERVICE_ROLE_KEY`.
 4. Set the same variables in Vercel → Settings → Environment Variables.
 
 Missing variables degrade gracefully: the public site builds and renders
