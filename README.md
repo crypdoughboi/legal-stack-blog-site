@@ -17,7 +17,12 @@ npm run build
 ## Setup
 
 1. **Database.** Create a Supabase project, open the SQL editor, and run
-   `db/schema.sql`. Copy the pooler connection URI into `DATABASE_URL`.
+   `db/schema.sql`. Then hit **Connect** in the dashboard's top bar and copy
+   the **Transaction pooler** string into `DATABASE_URL`: its host contains
+   `pooler.supabase.com` and its port is `6543`, which is what serverless
+   needs. Substitute your real database password for the `[YOUR-PASSWORD]`
+   placeholder, brackets included, and percent-encode any of
+   `@ : / ? # & %` it contains.
 2. **Sign-in.** Create a GitHub OAuth app with callback
    `https://YOUR-DOMAIN/api/auth/callback`. Set `GITHUB_CLIENT_ID`,
    `GITHUB_CLIENT_SECRET`, `AUTHOR_GITHUB_LOGIN` (the only account allowed
