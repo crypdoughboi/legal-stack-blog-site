@@ -1,0 +1,655 @@
+/* ---------------------------------------------------------------
+   The Legal Stack — law-review broadsheet.
+   Values track project/the-legal-stack.dc.html one to one; the media
+   queries below the desktop rules are the only additions.
+   --------------------------------------------------------------- */
+
+:root {
+  --paper: #faf7f1;
+  --ink: #1c1a17;
+  --body: #3f3a33;
+  --muted: #5d564c;
+  --faint: #7d7568;
+  --lightest: #a09585;
+  --rule: #ddd5c7;
+  --panel: #f4efe5;
+  --panel-stripe: #e8e0d1;
+  --field: #fffdf9;
+  --field-border: #cfc5b3;
+  --accent: oklch(0.47 0.1 25);
+
+  --gutter: 56px;
+  --measure: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-newsreader), Newsreader, Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.display {
+  font-family: var(--font-baskerville), "Libre Baskerville", Georgia, serif;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.section {
+  max-width: var(--measure);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* --- masthead ------------------------------------------------- */
+
+.masthead {
+  padding: 26px var(--gutter) 0;
+}
+
+.masthead__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.masthead__plate {
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+  margin-top: 18px;
+  padding: 30px 0 26px;
+  text-align: center;
+}
+
+.masthead__title {
+  margin: 0;
+  font-size: 56px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.masthead__tagline {
+  margin: 14px 0 0;
+  font-size: 15.5px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.masthead__nav {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  padding: 16px 0 0;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.masthead__nav a.is-accent {
+  color: var(--accent);
+}
+
+/* --- premise -------------------------------------------------- */
+
+.premise {
+  padding: 64px var(--gutter) 56px;
+}
+
+.premise__eyebrow {
+  margin: 0 0 26px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+.premise__heading {
+  margin: 0 auto;
+  max-width: 26ch;
+  text-align: center;
+  font-size: 46px;
+  line-height: 1.18;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.premise__body {
+  margin: 32px auto 0;
+  max-width: 64ch;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.premise__byline {
+  margin: 26px auto 0;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* --- lead essay ----------------------------------------------- */
+
+.lead {
+  padding: 56px var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.lead__eyebrow {
+  margin: 0 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.lead__title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.22;
+  font-weight: 700;
+  text-wrap: balance;
+  max-width: 26ch;
+}
+
+.lead__body {
+  margin: 22px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.lead__body + .lead__body {
+  margin-top: 16px;
+}
+
+.lead__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 26px;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.lead__meta a {
+  color: var(--accent);
+}
+
+/* --- recent writing ------------------------------------------- */
+
+.writing {
+  padding: 52px var(--gutter) 40px;
+}
+
+.writing__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.writing__head h2 {
+  margin: 0;
+}
+
+.writing__archive {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--faint);
+}
+
+.writing__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.writing__item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1.5fr) minmax(0, 1fr) 90px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.writing__item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.writing__numeral {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--lightest);
+}
+
+.writing__title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.writing__dek {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.writing__date {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lightest);
+  text-align: right;
+}
+
+.writing__filed {
+  margin: 26px 0 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.writing__filed a {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* --- practice notes ------------------------------------------- */
+
+.notes {
+  padding: 52px var(--gutter);
+}
+
+.notes__eyebrow {
+  margin: 0 0 6px;
+}
+
+.notes__dek {
+  margin: 0 0 34px;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.notes__row {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 40px;
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.notes__row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.notes__group {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.notes__body {
+  margin: 0;
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: var(--body);
+  max-width: 70ch;
+}
+
+/* --- about / the pivot ---------------------------------------- */
+
+.about {
+  padding: 52px var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 56px;
+  align-items: start;
+}
+
+.about__eyebrow {
+  margin: 0 0 20px;
+}
+
+.about__heading {
+  margin: 0;
+  font-size: 31px;
+  line-height: 1.25;
+  font-weight: 400;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+
+.about__body {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 70ch;
+  text-wrap: pretty;
+}
+
+.about__body + .about__body {
+  margin-top: 16px;
+}
+
+.about__link {
+  display: inline-block;
+  margin-top: 26px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
+  padding-bottom: 4px;
+}
+
+/* --- newsletter ----------------------------------------------- */
+
+.subscribe {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--gutter);
+}
+
+.subscribe__frame {
+  border: 1px solid var(--ink);
+  padding: 48px var(--gutter);
+  text-align: center;
+}
+
+.subscribe__eyebrow {
+  margin: 0 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.subscribe__heading {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.subscribe__dek {
+  margin: 18px auto 30px;
+  max-width: 54ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.subscribe__form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subscribe__input {
+  width: 320px;
+  max-width: 100%;
+  border: 1px solid var(--field-border);
+  background: var(--field);
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+}
+
+.subscribe__input:focus-visible {
+  border-color: var(--accent);
+}
+
+.subscribe__button {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  cursor: pointer;
+}
+
+.subscribe__button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.subscribe__footnote {
+  margin: 18px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--faint);
+}
+
+/* --- footer --------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid var(--ink);
+  padding: 30px var(--gutter) 44px;
+  text-align: center;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer__disclaimer {
+  margin: 20px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--faint);
+}
+
+/* --- placeholder plates --------------------------------------- */
+
+.plate {
+  border: 1px solid var(--rule);
+  background: var(--panel);
+}
+
+.plate svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- narrower viewports --------------------------------------- */
+
+@media (max-width: 1000px) {
+  .lead,
+  .about {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .about .plate {
+    max-width: 300px;
+  }
+
+  .writing__item {
+    grid-template-columns: 40px minmax(0, 1fr) 80px;
+    row-gap: 10px;
+  }
+
+  .writing__dek {
+    grid-column: 2 / 4;
+  }
+
+  .notes__row {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --gutter: 24px;
+  }
+
+  .masthead__meta {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .masthead__title {
+    font-size: 34px;
+  }
+
+  .masthead__nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .premise {
+    padding: 44px var(--gutter) 40px;
+  }
+
+  .premise__heading {
+    font-size: 30px;
+  }
+
+  .premise__body {
+    font-size: 17px;
+  }
+
+  .lead {
+    padding: 40px var(--gutter);
+  }
+
+  .lead__title {
+    font-size: 27px;
+  }
+
+  .lead__meta {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .writing,
+  .notes,
+  .about {
+    padding: 40px var(--gutter);
+  }
+
+  .writing__item {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .writing__title {
+    font-size: 20px;
+  }
+
+  .writing__date {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .writing__dek {
+    grid-column: 2;
+  }
+
+  .notes__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .about__heading {
+    font-size: 26px;
+  }
+
+  .subscribe {
+    padding: 40px var(--gutter);
+  }
+
+  .subscribe__frame {
+    padding: 36px 24px;
+  }
+
+  .subscribe__heading {
+    font-size: 26px;
+  }
+
+  .subscribe__input {
+    width: 100%;
+  }
+
+  .subscribe__button {
+    width: 100%;
+  }
+}
+
+/* --- utilities ------------------------------------------------ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

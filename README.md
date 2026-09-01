@@ -23,3 +23,28 @@ The design medium is **HTML/CSS/JS** — these are prototypes, not production co
 - `README.md` — this file
 - `chats/` — conversation transcripts (read these!)
 - `project/` — the `Innovation Attorney Blog Landing` project files (HTML prototypes, assets, components)
+
+---
+
+## The implementation (added by the coding agent)
+
+The design in `project/the-legal-stack.dc.html` is now built as a Next.js
+app at the root of this repo. `project/` and `chats/` are left untouched as
+the design reference.
+
+```bash
+npm install
+npm run dev    # http://localhost:3000
+npm run build  # static prerender
+```
+
+- `app/page.tsx` — section order for the page
+- `app/globals.css` — the design tokens and every layout rule, values
+  tracking the prototype one to one
+- `content/site.ts` — all copy, the post list, and the two section toggles
+  (`showPracticeNotes`, `showNewsletter`) the prototype exposed as props
+- `components/` — one component per section
+
+Still placeholders, as designed: the illustration and portrait plates
+(`components/PlaceholderPlate.tsx`), the subscribe form (inert), and the
+`#` links in the nav, post list, and footer.
