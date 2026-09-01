@@ -1,13 +1,8 @@
-import { leadEssay, recentPosts, site } from "@/content/site";
+import { site } from "@/content/site";
+import { publicSiteUrl } from "@/lib/origin";
+import { getPublishedPosts } from "@/lib/posts";
 
-export const dynamic = "force-static";
-
-type FeedItem = {
-  title: string;
-  href: string;
-  dek: string;
-  published: string;
-};
+export const revalidate = 600;
 
 function escapeXml(value: string) {
   return value
@@ -18,38 +13,22 @@ function escapeXml(value: string) {
     .replace(/'/g, "&apos;");
 }
 
-/**
- * Posts still pointing at "#" have nowhere to link, so they are left out of
- * the feed rather than published as dead entries. The feed is valid but empty
- * until the first post has a real URL.
- */
-export function GET() {
-  const candidates: FeedItem[] = [
-    {
-      title: leadEssay.title,
-      href: leadEssay.href,
-      dek: leadEssay.body[0],
-      published: leadEssay.published,
-    },
-    ...recentPosts.map((post) => ({
-      title: post.title,
-      href: post.href,
-      dek: post.dek,
-      published: post.published,
-    })),
-  ];
+export async function GET() {
+  const base = publicSiteUrl();
+  const posts = await getPublishedPosts(50);
 
-  const items = candidates
-    .filter((item) => item.href !== "#")
-    .sort((a, b) => b.published.localeCompare(a.published))
-    .map((item) => {
-      const url = new URL(item.href, site.url).toString();
+  const items = posts
+    .map((post) => {
+      const url = `${base}/writing/${post.slug}`;
+      const date = post.publishedAt ?? post.createdAt;
+
       return `    <item>
-      <title>${escapeXml(item.title)}</title>
+      <title>${escapeXml(post.title)}</title>
       <link>${escapeXml(url)}</link>
       <guid isPermaLink="true">${escapeXml(url)}</guid>
-      <description>${escapeXml(item.dek)}</description>
-      <pubDate>${new Date(`${item.published}T12:00:00Z`).toUTCString()}</pubDate>
+      <description>${escapeXml(post.dek)}</description>
+      <pubDate>${date.toUTCString()}</pubDate>
+${post.tags.map((tag) => `      <category>${escapeXml(tag)}</category>`).join("\n")}
     </item>`;
     })
     .join("\n");
@@ -58,10 +37,10 @@ export function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(site.title)}</title>
-    <link>${escapeXml(site.url)}</link>
+    <link>${escapeXml(base)}</link>
     <description>${escapeXml(site.tagline)}</description>
     <language>en</language>
-    <atom:link href="${escapeXml(`${site.url}/feed.xml`)}" rel="self" type="application/rss+xml" />
+    <atom:link href="${escapeXml(`${base}/feed.xml`)}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>

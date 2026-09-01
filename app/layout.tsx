@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Newsreader } from "next/font/google";
 import { site } from "@/content/site";
+import { publicSiteUrl } from "@/lib/origin";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -20,8 +22,11 @@ const baskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: "The Legal Stack — Josh Benzadon",
+  metadataBase: new URL(publicSiteUrl()),
+  title: {
+    default: "The Legal Stack — Josh Benzadon",
+    template: "%s — The Legal Stack",
+  },
   description:
     "Notes on artificial intelligence inside transactional practice, by Josh Benzadon, innovation attorney.",
   alternates: {
@@ -38,7 +43,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${newsreader.variable} ${baskerville.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

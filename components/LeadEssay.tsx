@@ -1,25 +1,41 @@
-import { leadEssay } from "@/content/site";
+import Link from "next/link";
+import type { Post } from "@/lib/posts";
+import { shortDate } from "@/lib/format";
 import { LeadIllustration } from "./LeadIllustration";
 
-export function LeadEssay() {
+/** First paragraph or two of the body, as the standfirst on the landing page. */
+function standfirst(body: string) {
+  return body
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter((block) => block.length > 0 && !block.startsWith("#"))
+    .slice(0, 2);
+}
+
+export function LeadEssay({ post }: { post: Post }) {
+  const href = `/writing/${post.slug}`;
+  const eyebrow = post.tags[0]
+    ? `Lead essay · ${post.tags[0]}`
+    : "Lead essay";
+
   return (
     <section className="section lead">
       <div>
-        <p className="lead__eyebrow">{leadEssay.eyebrow}</p>
+        <p className="lead__eyebrow">{eyebrow}</p>
         <h2 className="lead__title display">
-          <a href={leadEssay.href}>{leadEssay.title}</a>
+          <Link href={href}>{post.title}</Link>
         </h2>
-        {leadEssay.body.map((paragraph) => (
-          <p key={paragraph.slice(0, 24)} className="lead__body">
+        {standfirst(post.body).map((paragraph, index) => (
+          <p key={index} className="lead__body">
             {paragraph}
           </p>
         ))}
         <div className="lead__meta">
-          <span>{leadEssay.date}</span>
+          <span>{shortDate(post.publishedAt)}</span>
           <span>·</span>
-          <span>{leadEssay.readingTime}</span>
+          <span>{post.readingMinutes ?? 1} min</span>
           <span>·</span>
-          <a href={leadEssay.href}>Continue reading</a>
+          <Link href={href}>Continue reading</Link>
         </div>
       </div>
       <LeadIllustration />

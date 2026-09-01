@@ -1,31 +1,60 @@
 # The Legal Stack
 
-A blog landing page for Josh Benzadon, innovation attorney: notes on
-artificial intelligence inside transactional practice.
+A blog for Josh Benzadon, innovation attorney: notes on artificial
+intelligence inside transactional practice.
 
-Built with Next.js (App Router) from a Claude Design handoff. The design
-bundle it came from is kept in `project/` and `chats/` for reference.
+Next.js (App Router) + Supabase Postgres, with a GitHub-authenticated
+editor at `/admin`. The design came from a Claude Design handoff, kept in
+`project/` and `chats/` for reference.
 
 ```bash
 npm install
-npm run dev    # http://localhost:3000
-npm run build  # static prerender
+cp .env.example .env.local   # fill in, see Setup below
+npm run dev                  # http://localhost:3000
+npm run build
 ```
 
-### Where things live
+## Setup
 
-- `app/page.tsx` — section order for the page
-- `app/globals.css` — design tokens and every layout rule, values tracking
-  the prototype one to one
-- `content/site.ts` — all copy, the post list, and the two section toggles
-  (`showPracticeNotes`, `showNewsletter`)
-- `components/` — one component per section
+1. **Database.** Create a Supabase project, open the SQL editor, and run
+   `db/schema.sql`. Copy the pooler connection URI into `DATABASE_URL`.
+2. **Sign-in.** Create a GitHub OAuth app with callback
+   `https://YOUR-DOMAIN/api/auth/callback`. Set `GITHUB_CLIENT_ID`,
+   `GITHUB_CLIENT_SECRET`, `AUTHOR_GITHUB_LOGIN` (the only account allowed
+   in), and `AUTH_SECRET` (`openssl rand -hex 32`).
+3. **Images.** Create a **public** Supabase storage bucket named
+   `post-images`, then set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
+4. Set the same variables in Vercel → Settings → Environment Variables.
 
-### Still placeholders
+Missing variables degrade gracefully: the public site builds and renders
+with no posts, and sign-in reports that it is not configured.
 
-The illustration and portrait plates (`components/PlaceholderPlate.tsx`),
-the subscribe form (inert, no provider wired up), and the `#` links in the
-nav, post list, and footer.
+## Writing
+
+`/admin` lists every post, draft and published. The editor takes Markdown,
+auto-derives the URL from the title, uploads images inline, and has a
+preview toggle. "Lead essay" promotes a post to the front page; only one
+post holds it at a time. Publishing revalidates the front page, archive,
+topic pages, feed, and sitemap immediately.
+
+## Layout
+
+- `app/page.tsx` — the landing page
+- `app/writing/[slug]`, `app/archive`, `app/topics/[tag]` — reading
+- `app/admin`, `app/login`, `app/api/auth/*` — the author's side
+- `app/globals.css` — design tokens and every layout rule, tracking the
+  original prototype one to one
+- `content/site.ts` — standing copy (masthead, premise, practice notes,
+  about, footer). Posts live in the database, not here.
+- `lib/` — database, posts, auth, formatting
+- `db/schema.sql` — the schema, run once in Supabase
+
+## Still open
+
+- The portrait slot in the about section is a placeholder plate.
+- The subscribe form is inert until `buttondownUsername` is set in
+  `content/site.ts`.
+- The footer's email and LinkedIn links still point at `#`.
 
 ---
 

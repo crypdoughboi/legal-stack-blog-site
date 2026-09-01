@@ -1,7 +1,9 @@
 /**
- * All copy for the landing page, lifted from the Claude Design handoff
- * (project/the-legal-stack.dc.html). Editing text here is enough to change
- * the page — no component needs to be touched.
+ * Standing copy for the site: the masthead, the positioning sections, and
+ * the footer. Reviewed in the Claude Design handoff and kept as written.
+ *
+ * Posts, their dates, and the topic list are not here — they live in the
+ * database and are written through /admin.
  */
 
 export const site = {
@@ -32,64 +34,6 @@ export const premise = {
   body: "I'm an innovation attorney at a global law firm. I work with the corporate, funds, real estate, and restructuring groups to fit AI into how deals actually get done, and I write here about what I'm learning — including the parts that haven't worked yet.",
   byline: "By Josh Benzadon · previously startup & emerging companies / VC",
 };
-
-export const leadEssay = {
-  eyebrow: "Lead essay · Adoption",
-  title: "Why legal AI tends to stall around week six",
-  href: "#",
-  body: [
-    "Six weeks in, the novelty has worn off and the billable pressure is back. In my experience the tools that survive that week are the ones already sitting inside work someone was going to do anyway. The rest quietly become a slide in next quarter's committee update.",
-    "What has worked better for me: find the one step in the process a partner is already annoyed about, and never ask anyone to change two things at once.",
-  ],
-  date: "Aug 24",
-  published: "2026-08-24",
-  readingTime: "9 min",
-};
-
-export const recentPosts = [
-  {
-    numeral: "I.",
-    title: "What a model-run first pass at diligence actually cost us",
-    href: "#",
-    dek: "One real data room, the number it came to, and the hours it didn't remove.",
-    date: "Aug 12",
-    published: "2026-08-12",
-  },
-  {
-    numeral: "II.",
-    title: "We buy for the loudest partner and adopt with the mid-levels",
-    href: "#",
-    dek: "A gap between procurement and practice that I keep running into.",
-    date: "Jul 30",
-    published: "2026-07-30",
-  },
-  {
-    numeral: "III.",
-    title: "The billable hour looks safe. The first draft doesn't.",
-    href: "#",
-    dek: "Where I think the leverage moved, and what that does to the associate year.",
-    date: "Jul 18",
-    published: "2026-07-18",
-  },
-  {
-    numeral: "IV.",
-    title: "Were clause libraries the wrong abstraction?",
-    href: "#",
-    dek: "Precedent was rarely my bottleneck. Judgment about deviation usually was.",
-    date: "Jun 29",
-    published: "2026-06-29",
-  },
-];
-
-export const categories = [
-  { label: "adoption", href: "#" },
-  { label: "diligence", href: "#" },
-  { label: "drafting", href: "#" },
-  { label: "vendors & buying", href: "#" },
-  { label: "regulation", href: "#" },
-  { label: "governance", href: "#" },
-  { label: "career", href: "#" },
-];
 
 export const practiceNotes = {
   eyebrow: "Where I've landed so far",
