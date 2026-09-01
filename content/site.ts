@@ -89,10 +89,11 @@ export const footer = {
    * reappear on their own.
    */
   links: [
+    { label: "Writing", href: "/writing" },
+    { label: "Practice notes", href: "/notes" },
     { label: "Email", href: "" },
     { label: "LinkedIn", href: "" },
     { label: "RSS", href: "/feed.xml" },
-    { label: "Archive", href: "/writing" },
   ],
   disclaimer:
     "Written by Josh Benzadon in a personal capacity. Nothing here is legal advice.",

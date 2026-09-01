@@ -1361,3 +1361,30 @@ a:hover {
     font-size: 17px;
   }
 }
+
+/* --- the quiet way in ----------------------------------------- */
+
+.footer__author {
+  margin: 22px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer__author a {
+  color: var(--lightest);
+  opacity: 0.45;
+  transition: opacity 120ms ease, color 120ms ease;
+}
+
+.footer__author a:hover,
+.footer__author a:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__author a {
+    transition: none;
+  }
+}
